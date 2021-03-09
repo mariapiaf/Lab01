@@ -48,6 +48,7 @@ public class FXMLController {
     	long tempo1 = System.nanoTime();
     	String parola = txtParola.getText();
     	elenco.addParola(parola);
+    	long tempo2 = System.nanoTime();
     	txtParola.setText("");
     	elenco.getElenco();
     	String risultato = "";
@@ -55,9 +56,8 @@ public class FXMLController {
 			risultato += s +"\n";
 		}
     	txtResult.setText(risultato);
-    	long tempo2 = System.nanoTime();
     	long tempo = tempo2-tempo1;
-    	txtTempo.setText("Tempo impiegato " + tempo);
+    	txtTempo.setText("Tempo impiegato: " + tempo);
     	
    
     }
@@ -76,13 +76,13 @@ public class FXMLController {
     void doCancella(ActionEvent event) {
     	long tempo1 = System.nanoTime();
     	elenco.Cancella(txtResult.getSelectedText());
+    	long tempo2 = System.nanoTime();
     	txtResult.clear();
     	String risultato = "";
 		for(String s: elenco.getElenco()) {
 			risultato += s +"\n";
 		}
     	txtResult.setText(risultato);
-    	long tempo2 = System.nanoTime();
     	long tempo = tempo2-tempo1;
     	txtTempo.setText("Tempo impiegato " + tempo);
     }
