@@ -1,7 +1,6 @@
 package it.polito.tdp.parole;
-import javafx.scene.control.Label;
+
 import it.polito.tdp.parole.model.Parole;
-import it.polito.tdp.parole.model.Parole2;
 
 import java.net.URL;
 import java.util.List;
@@ -9,14 +8,15 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class FXMLController {
 	
 	Parole elenco ;
-	Parole2 elenco2;
 	
+
     @FXML
     private ResourceBundle resources;
 
@@ -33,20 +33,19 @@ public class FXMLController {
     private TextArea txtResult;
 
     @FXML
-    private Button btnReset;
-
-    @FXML
-    private Label txtTempo;
+    private TextField txtTempo;
 
     @FXML
     private Button btnCancella;
-    
+
+    @FXML
+    private Button btnReset;
+
     @FXML
     void doInsert(ActionEvent event) {
     	// TODO
-    	// ArrayList
-    	long tempo1 = System.nanoTime();
     	String parola = txtParola.getText();
+    	long tempo1 = System.nanoTime();
     	elenco.addParola(parola);
     	long tempo2 = System.nanoTime();
     	txtParola.setText("");
@@ -57,9 +56,8 @@ public class FXMLController {
 		}
     	txtResult.setText(risultato);
     	long tempo = tempo2-tempo1;
-    	txtTempo.setText("Tempo impiegato: " + tempo);
-    	
-   
+    	txtTempo.setText("" + tempo);
+    
     }
 
     @FXML
@@ -84,7 +82,7 @@ public class FXMLController {
 		}
     	txtResult.setText(risultato);
     	long tempo = tempo2-tempo1;
-    	txtTempo.setText("Tempo impiegato " + tempo);
+    	txtTempo.setText(""+ tempo);
     }
 
     @FXML
